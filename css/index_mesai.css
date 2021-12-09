@@ -1,0 +1,193 @@
+  [v-cloak] {
+	display: none !important;
+  }  
+  .input {
+   	width: 466px;
+   	height: 50px;
+   	vertical-align: top;
+   	box-sizing: border-box;
+   	border: 2px solid rgb(207, 205, 205);
+	border-bottom-left-radius: 10px;
+	border-top-left-radius: 2px;
+	outline: none;
+	margin: 0;
+	display: inline-block;
+   	background-position: 565px 7px;
+   	background-size: 28px;
+   	padding-right: 49px;
+   	padding-top: 10px;
+   	padding-bottom: 10px;
+   	line-height: 16px;
+   	border-radius: 30px;
+   	text-indent: 1em;
+   	font-size: 1.3em;
+   }
+   
+   .page_input {
+   	width: 50px;
+   	height: 30px;
+   	position: relative;
+   	top: -2px;
+   }
+   
+   .button {
+   	height: 50px;
+   	width: 150px;
+   	vertical-align: middle;
+   	text-indent: -8px;
+   	padding-left: -8px;
+   	background-color: #FC9A34;
+   	color: white;
+   	font-size: 2em;
+   	font-weight: bolder;
+   	outline: none;
+   	border: none;
+   	border-bottom-right-radius: 10px;
+   	border-top-right-radius: 10px;
+   	margin: 0;
+   	padding: 0;
+   	border-radius: 30px;
+   	text-align: center;
+   	line-height: 50px;
+   	margin-left: 30px;
+   	cursor: pointer;
+   }
+   
+   html,
+   body {
+   	margin: 0;
+   	padding: 0;
+   	height: 100%;
+   	width: 100%;
+   	font-family: "-apple-system,BlinkMacSystemFont,PingFang SC,Helvetica,Tahoma,Arial,Microsoft YaHei,微软雅黑,sans-serif";
+   }
+   
+   .video_div {
+   	width: 30%;
+   	margin-top: 5px;
+   	padding: 0 15px;
+   }
+   
+   .video_info {
+   	text-align: left;
+   	padding: 5px 10px;
+   	background-color: #FC9A34;
+   	color: white;
+   	position: relative;
+   	top: -8px;
+   }
+   
+   .top_bg {
+   	position: relative;
+   	background-image: url(/img/to_bg.jpg);
+   	height: 156px;
+   }
+   
+   .logo {
+   	position: absolute;
+   	top: 25px;
+   	left: 40px;
+   }
+   
+   #app {
+   	outline: 1px solid #ccc;
+   	height: 100%;
+   }
+   
+   .main_border {
+   	margin: 0 auto;
+   	position: relative;
+   	top: -45px;
+   	border-radius: 20px;
+   	border: 2px solid #797979;
+   	box-shadow: 1px 1px 0px 0px #ccc;
+   	background-color: white;
+   	padding-bottom: 45px;
+   }
+   
+   .top_input_box {
+   	padding-top: 45px;
+   	padding-left: 60px;
+   }
+   
+   .inside_div {
+   	padding: 0 40px;
+   }
+   
+   .video_content_border {
+   	padding: 0 60px;
+   }
+   
+   .video_content {
+   	position: relative;
+   	border: 2px dotted #797979;
+   	border-radius: 60px;
+   	padding: 10px 60px;
+   	padding-bottom: 50px;
+   	margin-top: 50px;
+   	height: 100%;
+   }
+   
+   .video_content>.flex_div {
+   	display: flex;
+   	justify-content: initial;
+   	flex-wrap: wrap;
+   	height: 560px;
+   	overflow: auto;
+   }
+   
+   .video_content_bottom {
+   	position: absolute;
+   	bottom: 5px;
+   	width: 100%;
+   }
+   
+   .video_content_bottom span {
+   	display: inline-block;
+   	width: 60px;
+   	height: 40px;
+   	text-align: center;
+   	background-color: #FC9A34;
+   	color: white;
+   	line-height: 40px;
+   	margin-left: 50px;
+   	vertical-align: middle;
+   }
+   
+   .video_content_bottom>.center {
+   	width: 120px;
+   	text-align: left;
+   	font-size: 1.3em;
+   	font-weight: bold;
+   	padding: 2px 9px;
+   }
+   
+   .video_content_bottom>.pre {
+   	background-image: url(/img/left.png);
+   	cursor: pointer;
+   	background-color: white;
+   	background-size: cover;
+   }
+   
+   .video_content_bottom>.next {
+   	margin-right: 50px;
+   	background-image: url(/img/right.png);
+   	cursor: pointer;
+   	background-color: white;
+   	background-size: cover;
+   }
+   
+   .div_nothing {
+   	display: inline;
+   	width: 360px;
+   	height: 235px;
+   	position: absolute;
+   	bottom: 100px;
+   	right: 100px;
+   }
+   .download_btn {
+   	position: absolute;
+   	right: 5px;
+   	top: 13px;
+   	cursor: pointer;
+   }
