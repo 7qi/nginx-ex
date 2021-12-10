@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
  <head> 
-  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" /> 
-  <link rel="stylesheet" type="text/css" href="/css/index_mesai.css"/>
- </head>
- <body> 
-  <div id="app" v-cloak>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  <link rel="stylesheet" type="text/css" href="css/index_mesai.css"/>
+ </head> 
+ <body>
+ <div id="app" v-cloak>
 		<div class="top_bg">
-		 	<img src="/img/logo.png" class="logo" width="151px" height="70px"/>
+		 	<img src="img/logo.png" class="logo" width="151px" height="70px"/>
 		</div>
 		<div class="inside_div">
 			<div class="main_border">
 			   	<div class="top_input_box">
-			     	<input type="text" placeholder="ここにキーワードをご入力ください" class="input" name="query" v-model="form_data.query" />
+			     	<input type="text"　placeholder="ここにキーワードをご入力ください" class="input" name="query" v-model="form_data.query" />
 					<input @click="search_video" type="button" value="検索" class="button"></input>
-					<input @click="search_video" type="button" value="アップロード" class="button"　style="width: 240px;"></input>
+					<input type="button" value="アップロード" class="button"　style="width: 240px;"></input>
 				</div>
 				<div class="video_content_border">
 					<div class="video_content">
@@ -24,15 +24,15 @@
 							</div>
 							<div v-for="item,index in current_data" class="video_div">
 								<div>
-									<video @loadstart="init_video(item)" width="100%" height="270px" :id="item.similarity_score" :title="item.videoid" controls>
-									  <source :src="'/getvideo/'+item.videoid+'.mp4'" type="video/mp4">
-										当前浏览器不支持 video直接播放，点击这里下载视频： <a :id="'a_'+item.similarity_score" download :href="'/getvideo/'+item.videoid+'.mp4'">下载视频</a>
+									<video @loadstart="init_video(item,index)" width="100%" height="250px" :id="item.similarity_score" :title="item.videoid" controls>
+									  <source :src="'/'+item.videoid+'.mp4'" type="video/mp4">
+										当前浏览器不支持 video直接播放，点击这里下载视频： <a :id="'a_'+item.similarity_score" download :href="item.videoid">下载视频</a>
 									</video>
 								</div>
 								<div class="video_info">
-								    <span>{{ item.videoid }}.mp4</span><br />
+								    <span>{{ item.videoid }}</span><br />
 									<span>開始時間：{{ item.display_start_time }}　　終了時間: {{item.display_end_time}}</span>
-									<span class="download_btn" @click="download(item)"><img src="/img/download.png"/></span>
+									<span class="download_btn" @click="download(item)"><img src="img/download.png"/></span>
 								</div>
 							</div>
 						</div>
@@ -42,13 +42,12 @@
 							<span @click="next" class="next"></span>
 					   	</div>
 					</div>
-			   	</div>
+			   </div>
 		</div>
 	</div>
-  </div>   
-  <script src="/js/jquery.min.js"></script>
-  <script src="/js/vue.min.js"></script>
-  <script src="/js/axios.min.js"></script>
-  <script src="/js/index_mesai.js" type="text/javascript" charset="utf-8"></script>
- </body>
+  </div>  
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="js/index_mesai.js" type="text/javascript" charset="utf-8"></script>
 </html>
+</body>
