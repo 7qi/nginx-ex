@@ -25,17 +25,82 @@ let app = new Vue({
 				alert("キーワードをご入力ください。")
 				return;
 			}
-			this.current_data = []
-			axios.get("http://10.167.162.170/video?query=" + this.form_data.query).then(res => {
-				for(let index in res.data) {
-					res.data[index]["display_start_time"] = this.convert_time(res.data[index].start_time);
-					res.data[index]["display_end_time"] = this.convert_time(res.data[index].end_time)
-				}
-				this.result_data = res.data;
-				this.do_page()
-			}).catch(err => {
-				console.log(err)
-			})
+//			axios.get("http://10.167.162.170/video?query=" + this.form_data.query).then(res => {
+//				for(let index in res.data) {
+//					res.data[index]["display_start_time"] = this.convert_time(res.data[index].start_time);
+//					res.data[index]["display_end_time"] = this.convert_time(res.data[index].end_time)
+//				}
+//				this.result_data = res.data;
+//			}).catch(err => {
+//				console.log(err)
+//			})
+
+			this.result_data = []
+			data = [
+			    {
+			        "start_time": "5.30",
+			        "end_time": "10.30",
+			        "videoid": "1",
+			        "similarity_score": "0.26117",
+			        "peak_frame": "589"
+			    },
+			    {
+			        "start_time": "15.00",
+			        "end_time": "20.65",
+			        "videoid": "1",
+			        "similarity_score": "0.26095",
+			        "peak_frame": "589"
+			    },
+			    {
+			        "start_time": "60.00",
+			        "end_time": "100.32",
+			        "videoid": "1",
+			        "similarity_score": "0.25877",
+			        "peak_frame": "589"
+			    },
+			    {
+			        "start_time": "5.30",
+			        "end_time": "10.30",
+			        "videoid": "1",
+			        "similarity_score": "0.25095",
+			        "peak_frame": "589"
+			    },
+			    {
+			        "start_time": "5.30",
+			        "end_time": "10.30",
+			        "videoid": "1",
+			        "similarity_score": "0.24117",
+			        "peak_frame": "589"
+			    },
+			    {
+			        "start_time": "15.00",
+			        "end_time": "20.65",
+			        "videoid": "1",
+			        "similarity_score": "0.23095",
+			        "peak_frame": "589"
+			    },
+			    {
+			        "start_time": "60.00",
+			        "end_time": "100.32",
+			        "videoid": "1",
+			        "similarity_score": "0.22877",
+			        "peak_frame": "589"
+			    },
+			    {
+			        "start_time": "5.30",
+			        "end_time": "10.30",
+			        "videoid": "1",
+			        "similarity_score": "0.21095",
+			        "peak_frame": "589"
+			    }
+			]
+			for(let index in data) {
+				data[index]["display_start_time"] = this.convert_time(data[index].start_time);
+				data[index]["display_end_time"] = this.convert_time(data[index].end_time)
+			}
+			this.result_data = data;
+			this.do_page();
+
 		},
 		// 時間変換
 		convert_time(time_str) {
@@ -47,8 +112,12 @@ let app = new Vue({
 			sss = sss < 10 ? '00' + sss : sss < 100 ? '0' + sss : sss;
 			return result = h + ":" + m + ":" + s + "." + sss;
 		},
-		init_video(item) {
-			document.getElementById(item.similarity_score).currentTime = item.start_time;
+		init_video(item, index) {
+			//					document.getElementById(item.similarity_score).currentTime = item.start_time;
+			//					
+			this.result_data[index]["display_start_time"] = this.convert_time(item.start_time);
+			this.result_data[index]["display_end_time"] = this.convert_time(item.end_time);
+			//					console.log(this.result_data[index]["display_end_time"])
 		},
 		download (item) {
 			document.getElementById("a_" + item.similarity_score).click();
@@ -89,6 +158,12 @@ let app = new Vue({
 				this.jump_index = parseInt(this.page_info["current_page"]);
 			}
 		}
-		
+	},
+	mounted() {
+		for(let index in this.result_data) {
+			this.result_data[index]["display_start_time"] = this.convert_time(this.result_data[index].start_time);
+			this.result_data[index]["display_end_time"] = this.convert_time(this.result_data[index].end_time)
+		}
+		this.do_page();
 	}
 })
